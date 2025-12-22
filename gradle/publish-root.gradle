@@ -8,9 +8,7 @@ if (secretPropsFile.exists()) {
 }
 
 // Set up Sonatype repository
-
 nexusPublishing {
-
     repositories {
         sonatype {
             stagingProfileId = System.env.SONATYPE_STATING_PROFILE_ID
@@ -18,5 +16,4 @@ nexusPublishing {
             password = System.env.OSSR_PASSWORD
         }
     }
-
 }

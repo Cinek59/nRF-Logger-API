@@ -1,14 +1,14 @@
 plugins {
-    id 'com.android.library'
+    alias(libs.plugins.android.library)
 }
 
 android {
     namespace 'no.nordicsemi.android.log'
-    compileSdk 34
+    compileSdk = 34
 
     defaultConfig {
-        minSdk 16
-        targetSdk 34
+        minSdk = 16
+        targetSdk = 34
     }
 
     buildTypes {
@@ -33,7 +33,7 @@ android {
 
 dependencies {
     // Required for @NonNull and @Nullable
-    api 'androidx.annotation:annotation:1.8.2'
+    api libs.androidx.annotation
 }
 
 // === Maven Central configuration ===
