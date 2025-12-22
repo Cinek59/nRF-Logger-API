@@ -1,15 +1,15 @@
 plugins {
-    id 'com.android.application'
+    alias(libs.plugins.android.application)
 }
 
 android {
     namespace "no.nordicsemi.android.log.example"
-    compileSdk 34
+    compileSdk = 34
 
     defaultConfig {
         applicationId "no.nordicsemi.android.log.example"
-        minSdk 21
-        targetSdk 34
+        minSdk = 21
+        targetSdk = 34
     }
 
     buildTypes {
@@ -26,7 +26,6 @@ android {
 
 dependencies {
     implementation project(':log')
-
-    implementation 'com.google.android.material:material:1.12.0'
-    implementation 'androidx.fragment:fragment:1.8.2'
+    implementation libs.material.design
+    implementation libs.androidx.fragment
 }
