@@ -33,11 +33,12 @@
 <resources>
 
     <string name="app_name">nRF Logger Example</string>
-    
+
+    <string name="action_help">Help</string>
     <string name="action_create">Create log session</string>
     <string name="action_append">Add</string>
-    <string name="action_open">Show log entries</string>
-    <string name="action_open_sessions">Show all log sessions</string>
+    <string name="action_open">Entries</string>
+    <string name="action_open_sessions">Sessions</string>
     <string name="action_download">Get nRF Logger</string>
     
     <string name="action_append_hint">Some text</string>
@@ -60,4 +61,10 @@
     <string name="dialog_name">Name (optional)</string>
     <string name="dialog_error">The field may not be empty.</string>
 
+    <string name="dialog_help_title">Help</string>
+    <string name="dialog_help_message">This is a sample app showcasing adding log entries to nRF Logger app.
+        \n\nFirst, you need to create a log session. Each session has a required key, which groups entries, and
+        an optional name. The key is usually a Bluetooth Address or some device identifier.
+        \n\nWith a session created you may add entries with different log levels.
+        \n\nTap buttons at the bottom to open nRF Logger entries or sessions screen.</string>
 </resources>

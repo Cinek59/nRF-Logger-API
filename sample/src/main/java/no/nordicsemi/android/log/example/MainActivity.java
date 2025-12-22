@@ -33,12 +33,17 @@ package no.nordicsemi.android.log.example;
 
 import android.content.ContentProviderClient;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.DialogFragment;
 
 import no.nordicsemi.android.log.LogContract;
+import no.nordicsemi.android.log.example.fragment.HelpDialogFragment;
 import no.nordicsemi.android.log.example.fragment.MainFragment;
 
 public class MainActivity extends AppCompatActivity {
@@ -62,7 +67,23 @@ public class MainActivity extends AppCompatActivity {
 		}
 	}
 
-	private boolean logProviderExists() {
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.help, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == R.id.action_help) {
+            DialogFragment dialog = new HelpDialogFragment();
+            dialog.show(getSupportFragmentManager(), null);
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    private boolean logProviderExists() {
 		// The method below requires API 16
 		try (final ContentProviderClient client = getContentResolver()
 				.acquireContentProviderClient(LogContract.AUTHORITY)) {
