@@ -9,18 +9,22 @@ The logger may be used for debugging purposes, as LogCat is not always available
 
 nRF Logger is available for Android 4.2.* and newer.
 
+## Documentation
+
+API documentation is located [here](https://nordicsemi.github.io/nRF-Logger-API/html/index.html).
+
 ### Usage
 The nRF Logger API library is available on Maven Central repositories. 
-For Android Studio, add the following dependency to your component's *gradle.build* file:
+For Android Studio, add the following dependency to your component's *gradle.build.kts* file:
 
 ```Groovy
-implementation 'no.nordicsemi.android:log:2.5.0'
+implementation('no.nordicsemi.android:log:<version>')
 ```
 
 For easy integration with [Timber (5.0.1)](https://github.com/JakeWharton/timber), use this instead:
 
 ```Groovy
-implementation 'no.nordicsemi.android:log-timber:2.5.0'
+implementation('no.nordicsemi.android:log-timber:<version>')
 ```
 
 If your project is NOT migrated to AndroidX, use version 2.2.0.
@@ -39,7 +43,7 @@ APPLICATION level added in version 2.0 of the library.
 
 ### Timber integration
 After importing log-timber dependency, plant the 
-[nRFLoggerTree](https://github.com/NordicSemiconductor/nRF-Logger-API/blob/main/log-timber/src/main/java/no/nordicsemi/android/log/timber/nRFLoggerTree.java), 
+[nRFLoggerTree](https://github.com/nordicsemi/nRF-Logger-API/blob/main/log-timber/src/main/java/no/nordicsemi/android/log/timber/nRFLoggerTree.java), 
 as described on [Timber](https://github.com/JakeWharton/timber) website.
 
 #### Important
@@ -104,7 +108,7 @@ if the nRF Logger application is not installed. Local log database is a limited 
 in nRF Logger. It does not support multiple applications as the new provider is designed to work only 
 in one application. Also marking session with a flag/star or adding a description is not supported.
 
-To use the LocalLogContentProvider you must extend extend this class in you project and add its 
+To use the LocalLogContentProvider you must extend this class in you project and add its 
 definition to the *AndroidManifest.xml* file:
 ```xml
 <provider
@@ -113,7 +117,7 @@ definition to the *AndroidManifest.xml* file:
     android:exported="true" />
 ```        
 If you want to use the local logger in threads that are owned by other applications, e.g. by Bluetooth 
-scanner callbacks, you must set the **exported** attribute to *true*. Otherwise the Bluetooth application 
+scanner callbacks, you must set the **exported** attribute to *true*. Otherwise, the Bluetooth application 
 will not have the permission to add log events. You may also use **Handler** object to log in 
 UI thread of your application.
 
